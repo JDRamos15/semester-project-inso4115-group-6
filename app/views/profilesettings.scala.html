@@ -1,0 +1,52 @@
+@()(implicit request: RequestHeader)
+
+@main("Profile Settings") {
+    <div class="main">
+        <div class="main-bar">
+            <h1>User settings</h1>
+        </div>
+        <h2 style="color:#f2f2f2">Upload/Change profile picture</h2>
+        Profile picture must fit the required size
+        <div>
+            <input name="file" size="50" type="file">
+        </div>
+    </div> 
+
+    <!-- <input type="text" class="search " placeholder="Search...">
+</div> -->
+
+<div class="main">
+    <div class="main-bar">
+        <h1>User settings</h1>
+    </div>
+    <h2 style="color:#f2f2f2">Upload/Change profile picture</h2>
+    Profile picture must fit the required size
+    @helper.form(action = routes.ProfileSettingsController.updateProfilePic, Symbol("enctype") -> "multipart/form-data") {
+        @helper.CSRF.formField
+        <input type="file" size="50" name="picture">
+        <p>
+            <button class="buttons" type="submit" id="btnChangePic">Update</button>
+        </p>
+    }
+    <div>
+        <input type="submit" class="inputButton" name="submit" value="Submit">
+    </div>
+    <h2 style="color:#f2f2f2">Change cover picture</h2>
+    Picture must fit the required size
+    @helper.form(action = routes.ProfileSettingsController.upload, Symbol("enctype") -> "multipart/form-data") {
+        @helper.CSRF.formField
+        <input name="picture" size="50" type="file">
+        <p>
+            <input type="submit">
+        </p>
+    }
+    <div>
+        <h1 style = "color:white" > About me </h1>
+        <textarea cols="80" rows="14" class="textarea" name="profile_aboutme"></textarea>
+    </div>
+    <div>
+        <input type="submit" class="inputButton" name="submit" value="Submit">
+
+        </div>
+    </div>
+}

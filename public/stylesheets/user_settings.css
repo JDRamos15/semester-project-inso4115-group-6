@@ -1,0 +1,22 @@
+.main-bar{
+    position:relative;
+    bottom: 42px;
+    right: 20px;
+    width: 105%;
+    background-color: #399cff;
+    color:#ffffff;
+    border-radius: 25px;
+    text-align:center;
+
+}
+
+.main {
+    position:relative;
+    left: 400px;
+    top: 150px;
+    float: center;
+    padding: 20px;
+    width: 50%;
+    background-color: #bcddff;
+    border-radius: 25px;
+}
